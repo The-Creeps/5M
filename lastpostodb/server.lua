@@ -13,7 +13,7 @@ AddEventHandler("project:savelastpos", function( LastPosX , LastPosY , LastPosZ 
 		--Exécution de la requêtes SQL.
 		local executed_query = MySQL:executeQuery("UPDATE users SET `lastpos`='@lastpos' WHERE identifier = '@username'", {['@username'] = player, ['@lastpos'] = LastPos})
 		--Affichage d'un message confirmant la sauvegarde de la position du joueurs.
-		TriggerClientEvent("project:notify", -1, "Position Sauvegardée")
+		TriggerClientEvent("project:notify", source, "Position Sauvegardée")
 	end)
 end)
 
