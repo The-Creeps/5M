@@ -1,6 +1,9 @@
 RegisterNetEvent('project:notify')
 RegisterNetEvent("project:spawnlaspos")
 
+local firstspawn = 0
+local loaded = false
+
 --Boucle Thread d'envoie de la position toutes les x secondes vers le serveur pour effectuer la sauvegarde
 Citizen.CreateThread(function ()
 	while true do
@@ -32,12 +35,15 @@ end
 
 --Event pour le spawn du joueur vers la dernière position connue
 AddEventHandler("project:spawnlaspos", function(PosX, PosY, PosZ)
-    SetEntityCoords(GetPlayerPed(-1), PosX, PosY, PosZ, 1, 0, 0, 1)
-	Notify("Vous voici à votre dernière position")
+	if not loaded then
+		SetEntityCoords(GetPlayerPed(-1), PosX, PosY, PosZ, 1, 0, 0, 1)
+		Notify("Vous voici à votre dernière position")
+		loaded = true
+	end
+	Notify(loaded)
 end)
 
 --Action lors du spawn du joueur
-local firstspawn = 0
 AddEventHandler('playerSpawned', function(spawn)
 --On verifie que c'est bien le premier spawn du joueur
 if firstspawn == 0 then
