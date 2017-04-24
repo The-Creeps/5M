@@ -40,7 +40,7 @@ AddEventHandler("project:SpawnPlayer", function()
 				local PosZ = ToSpawnPos[3]
 				local PosH = ToSpawnPos[4]
 				-- On envoie la derniere position vers le client pour le spawn
-				TriggerClientEvent("project:spawnlaspos", -1, PosX, PosY, PosZ)
+				TriggerClientEvent("project:spawnlaspos", source, PosX, PosY, PosZ)
 				end
 			end
 		end
