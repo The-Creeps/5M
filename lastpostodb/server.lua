@@ -32,9 +32,9 @@ AddEventHandler("project:SpawnPlayer", function()
 		if(result)then
 			for k,v in ipairs(result)do
 				if v.lastpos ~= "" then
-				-- Décodage des données récupérée
+				-- Décodage des données récupérées
 				local ToSpawnPos = json.decode(v.lastpos)
-				-- Intégration des données dans les variables dédiée
+				-- Intégration des données dans les variables dédiées
 				local PosX = ToSpawnPos[1]
 				local PosY = ToSpawnPos[2]
 				local PosZ = ToSpawnPos[3]
