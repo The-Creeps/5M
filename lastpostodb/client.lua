@@ -19,7 +19,7 @@ Citizen.CreateThread(function ()
 	end
 end)
 
---Event permetant au serveur d'envoyez une notification au joueur
+--Event permettant au serveur d'envoyez une notification au joueur
 RegisterNetEvent('project:notify')
 AddEventHandler('project:notify', function(alert)
     if not origin then
