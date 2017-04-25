@@ -1,3 +1,4 @@
+--Version 1.03
 RegisterNetEvent('project:notify')
 RegisterNetEvent("project:spawnlaspos")
 

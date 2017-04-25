@@ -1,3 +1,4 @@
+--Version 1.03
 require "resources/essentialmode/lib/MySQL"
 --Configuration de la connexion vers la DB MySQL
 MySQL:open("127.0.0.1", "database", "login", "password")
