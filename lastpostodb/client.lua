@@ -41,7 +41,6 @@ AddEventHandler("project:spawnlaspos", function(PosX, PosY, PosZ)
 		Notify("Vous voici à votre dernière position")
 		loaded = true
 	end
-	Notify(loaded)
 end)
 
 --Action lors du spawn du joueur
