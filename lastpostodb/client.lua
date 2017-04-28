@@ -61,7 +61,7 @@ function Saver()
 	end)
 end
 
---Event permetant au serveur d'envoyez une notification au joueur
+--Event permettant au serveur d'envoyer une notification au joueur
 RegisterNetEvent('projectEZ:notify')
 AddEventHandler('projectEZ:notify', function(alert)
     if not origin then
