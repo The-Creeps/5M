@@ -14,9 +14,9 @@ Keys = {
 	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
 }
 
-local autoSave = true -- Active automatique // true = sauvegarde automatique / false = sauvegarde manuelle
-local timerofsave = 60000 -- Durée entre chaque sauvegarde de la position 60000 = 60 secondes
-local spamdelay = 60000 -- Durée d'attente avant de pouvoir à nouveau sauvegarder la position du joueur en mode Manuel'
+local AutoSaveEnabled = true -- Active sauvegarde automatique // true = sauvegarde automatique // false = sauvegarde manuelle
+local TimerAutoSave = 60000 -- Durée entre chaque sauvegarde de la position en mode automatique // 60000 = 60 secondes
+local TimerManualSave = 60000 -- Durée d'attente avant de pouvoir à nouveau sauvegarder la position du joueur en mode Manuel // 60000 = 60 secondes
 local firstspawn = 0 -- Ne pas toucher
 
 --Notification joueur
@@ -31,9 +31,9 @@ function Saver()
 	--Boucle Thread d'envoie de la position toutes les x secondes vers le serveur pour effectuer la sauvegarde
 	Citizen.CreateThread(function ()
 		while true do
-			if autoSave then
+			if AutoSaveEnabled then
 				--Durée entre chaque requêtes
-				Citizen.Wait(timerofsave)
+				Citizen.Wait(TimerAutoSave)
 				--Récupération de la position x, y, z du joueur
 				LastPosX, LastPosY, LastPosZ = table.unpack(GetEntityCoords(GetPlayerPed(-1), true))
 				--Récupération de l'azimut du joueur
@@ -55,7 +55,7 @@ function Saver()
 					TriggerServerEvent("projectEZ:savelastpos", LastPosX , LastPosY , LastPosZ, LastPosH)
 					if not origin then
 						Notify("Position sauvegardée")
-						Citizen.Wait(spamdelay)
+						Citizen.Wait(TimerManualSave)
 					end
 				end
 			end	
