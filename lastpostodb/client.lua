@@ -26,6 +26,19 @@ function Notify(text)
     DrawNotification(false, true)
 end
 
+function RequestToSave()
+	--Récupération de la position x, y, z du joueur
+	LastPosX, LastPosY, LastPosZ = table.unpack(GetEntityCoords(GetPlayerPed(-1), true))
+	--Récupération de l'azimut du joueur
+	local LastPosH = GetEntityHeading(GetPlayerPed(-1))
+	--Envoi des données vers le serveur
+	TriggerServerEvent("projectEZ:savelastpos", LastPosX , LastPosY , LastPosZ, LastPosH)
+	if not origin then
+		--Affichage d'un message confirmant la sauvegarde de la position du joueurs.
+		Notify("Position Sauvegardée")
+	end
+end
+
 --Fonction sauvegarde automatique de la position du joueur
 function Saver()
 	--Boucle Thread d'envoie de la position toutes les x secondes vers le serveur pour effectuer la sauvegarde
@@ -34,29 +47,14 @@ function Saver()
 			if AutoSaveEnabled then
 				--Durée entre chaque requêtes
 				Citizen.Wait(TimerAutoSave)
-				--Récupération de la position x, y, z du joueur
-				LastPosX, LastPosY, LastPosZ = table.unpack(GetEntityCoords(GetPlayerPed(-1), true))
-				--Récupération de l'azimut du joueur
-				local LastPosH = GetEntityHeading(GetPlayerPed(-1))
 				--Envoi des données vers le serveur
-				TriggerServerEvent("projectEZ:savelastpos", LastPosX , LastPosY , LastPosZ, LastPosH)
-				if not origin then
-					--Affichage d'un message confirmant la sauvegarde de la position du joueurs.
-					Notify("Position Sauvegardée")
-				end
+				RequestToSave()
 			else
 				Citizen.Wait(0)
 				if IsControlJustPressed(1, Keys["."])  then
-					--Récupération de la position x, y, z du joueur
-					LastPosX, LastPosY, LastPosZ = table.unpack(GetEntityCoords(GetPlayerPed(-1), true))
-					--Récupération de l'azimut du joueur
-					local LastPosH = GetEntityHeading(GetPlayerPed(-1))
-					--Envoi des données vers le serveur
-					TriggerServerEvent("projectEZ:savelastpos", LastPosX , LastPosY , LastPosZ, LastPosH)
-					if not origin then
-						Notify("Position sauvegardée")
-						Citizen.Wait(TimerManualSave)
-					end
+				--Envoi des données vers le serveur
+				RequestToSave()
+				Citizen.Wait(TimerManualSave)
 				end
 			end	
 		end
