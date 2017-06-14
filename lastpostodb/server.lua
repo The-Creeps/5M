@@ -33,3 +33,13 @@ AddEventHandler("projectEZ:SpawnPlayer", function()
 		end
 	end)
 end)
+
+-- Sauvegarde de la position lors de la deconnexion
+AddEventHandler('playerDropped', function()
+	TriggerEvent('es:getPlayerFromId', source, function(user)
+		--Formatage des données en JSON pour intégration dans MySQL.
+		local LastPos = "{" .. user.coords.x .. ", " .. user.coords.y .. ",  " .. user.coords.z .. ", " .. user.coords.h .. "}"
+		--Exécution de la requêtes SQL.
+		MySQL.Async.execute("UPDATE users SET `lastpos`=@lastpos WHERE identifier = @identifier",{["@lastpos"] = LastPos, ['@identifier'] = user.identifier})
+  	end)
+end)
