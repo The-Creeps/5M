@@ -28,6 +28,11 @@ RegisterNetEvent("player:receiveItem")**
 - You can change the **max capacity** in _server.lua_ with the maxCapacity variable
 - You can watch the **PutInCoffre** function of `vdk_inventory` to see an example
 
-## Next steps
-
-- Add this system for job vehicles because actually it only work with personal vehicles ;)
+Add in this edit version
+- Compatibility with "La_Life" 
+- You can now select objects to put in the car chest directly from the menu.
+- You can put any object into any vehicle, no need to own the vehicle... (But if you loose the vehicle you loose your objects too ..)
+- Limit slot by class vehicle
+- Not possible to open when the vehicle is closed ( status lock 2 and 7 )
+- Some alert ( Full, No more slot, etc )
+- Solved a problem with the items list after reboot.
