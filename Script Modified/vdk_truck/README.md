@@ -12,12 +12,11 @@ Original Autor **Vodkhard**
 - **MySQL-Async** : https://forum.fivem.net/t/beta-mysql-async-library-v0-2-2/
 
 ## Compatibility "La_Life"
-**please add this line into the "inventory_client.lua" of your "fivemenu" folder
-RegisterNetEvent("player:receiveItem")**
+please add this line into the "inventory_client.lua" of your "fivemenu" folder
+- **RegisterNetEvent("player:receiveItem")**
 
 ## Installation
 
-- Download the resource here : https://github.com/vodkhard/vdk_truck 
 - Place the folder `vdk_truck` to resources folder of FiveM
 - Execute **dump.sql** file in your database (will create the tables and the constraints)
 
