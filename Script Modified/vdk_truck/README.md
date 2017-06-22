@@ -10,6 +10,7 @@
 
 - **es_freeroam**
 - **vdk_inventory** last version : https://forum.fivem.net/t/release-inventory-system-v2-personal-menu/
+or **(la_life) inventory**
 - **ply_garage** (to add **personal vehicles**) : https://forum.fivem.net/t/release-en-fr-async-garages-v4-2-06-06-17-updated/
 - **MySQL-Async** : https://forum.fivem.net/t/beta-mysql-async-library-v0-2-2/
 
