@@ -1,5 +1,7 @@
 # vdk_truck
 
+Edit VERSION By **Ze-Creeps**
+Original Autor **Vodkhard**
 > Resources for FiveM allowing the user to access to a car inventory and for developpers to add and remove items from this inventory.
 
 ## Requirements
@@ -8,6 +10,10 @@
 - **vdk_inventory** last version : https://forum.fivem.net/t/release-inventory-system-v2-personal-menu/
 - **ply_garage** (to add **personal vehicles**) : https://forum.fivem.net/t/release-en-fr-async-garages-v4-2-06-06-17-updated/
 - **MySQL-Async** : https://forum.fivem.net/t/beta-mysql-async-library-v0-2-2/
+
+## Compatibility "La_Life"
+**please add this line into the "inventory_client.lua" of your "fivemenu" folder
+RegisterNetEvent("player:receiveItem")**
 
 ## Installation
 
@@ -25,5 +31,3 @@
 ## Next steps
 
 - Add this system for job vehicles because actually it only work with personal vehicles ;)
-
-## If you want to support me and my work : :moneybag:[Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B3ZE4W8Y626MA):moneybag:
