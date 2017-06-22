@@ -1,7 +1,9 @@
 # vdk_truck
 
-Edit VERSION By **Ze-Creeps**
-Original Autor **Vodkhard**
+Edit VERSION By : **Ze-Creeps**
+Original Autor : **Vodkhard**
+Original Link : ** https://github.com/vodkhard/vdk_truck **
+
 > Resources for FiveM allowing the user to access to a car inventory and for developpers to add and remove items from this inventory.
 
 ## Requirements
