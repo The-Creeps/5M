@@ -1,5 +1,5 @@
 --Version 1.5
-require "resources/mysql-async/lib/MySQL"
+require "resources/mysql-async/lib/MySQL.lua"
 
 --Déclaration des EventHandler
 RegisterServerEvent("projectEZ:savelastpos")
